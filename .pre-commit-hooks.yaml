@@ -1,0 +1,7 @@
+- id: weird-spec-files
+  name: "Check for weird spec files"
+  entry: check-spec-filename
+  language: script
+  files: "^spec/"
+  types: [file, ruby]
+  pass_filenames: true

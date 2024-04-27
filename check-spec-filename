@@ -1,0 +1,23 @@
+#!/bin/bash
+
+status=0
+
+for name in "$@"; do
+    if ! [[ "$name" = *".rb" ]]; then
+        continue
+    elif [[ "$name" = "spec/support"* ]]; then
+        continue
+    elif [[ "$name" = *spec_helper.rb ]]; then
+        continue
+    elif [[ "$name" = *rails_helper.rb ]]; then
+        continue
+    elif [[ "$name" = *_spec.rb ]]; then
+        continue
+    elif [[ "$name" = "spec/factories/"* ]]; then
+        continue
+    else
+        echo >&2 "invalid filename ${name}"
+        status=1
+    fi
+done
+exit $status
